@@ -24,3 +24,101 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ===== Markdown 渲染样式（AI 消息内） ===== */
+.markdown-body *:first-child {
+  margin-top: 0;
+}
+.markdown-body *:last-child {
+  margin-bottom: 0;
+}
+
+/* 表格 */
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5rem 0;
+  font-size: 0.9em;
+}
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.markdown-body th {
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+.markdown-body td {
+  color: rgba(255, 255, 255, 0.75);
+}
+.markdown-body tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* 任务列表（GFM checkbox） */
+.markdown-body ul:has(input[type="checkbox"]),
+.markdown-body ol:has(input[type="checkbox"]) {
+  list-style: none;
+  padding-left: 0;
+}
+.markdown-body input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  cursor: default;
+  accent-color: #818cf8;
+}
+.markdown-body input[type="checkbox"]:checked {
+  background: #818cf8;
+  border-color: #818cf8;
+}
+.markdown-body input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 图片 */
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 0.75rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 行内代码（兜底） */
+.markdown-body code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+/* 滚动条美化 */
+.flex-1.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.flex-1.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+.flex-1.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+.flex-1.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
