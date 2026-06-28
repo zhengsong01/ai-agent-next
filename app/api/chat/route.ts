@@ -193,7 +193,7 @@ ${context}`;
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ model: "DeepSeek-V4-Flash", messages: ragMessages, stream: true }),
+        body: JSON.stringify({ model: "qwen-turbo", messages: ragMessages, stream: true }),
       });
       if (!res.ok) throw new Error(`LLM API ${res.status}`);
       const stream = await forwardStream(res);
@@ -234,7 +234,7 @@ ${context}`;
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ model: "DeepSeek-V4-Flash", messages, stream: true }),
+      body: JSON.stringify({ model: "qwen-turbo", messages, stream: true }),
     });
     if (!res.ok) throw new Error(`LLM API ${res.status}`);
     const stream = await forwardStream(res);
